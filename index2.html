@@ -15,80 +15,56 @@
     <style>
         body {
             font-family: 'Inter', sans-serif;
-            background: linear-gradient(-45deg, #e2e8f0, #f8fafc, #e2e8f0, #f8fafc);
-            background-size: 400% 400%;
-            animation: GradientBackground 15s ease infinite;
-            color: #1a202c; /* Ensure text is readable */
         }
         html {
             scroll-behavior: smooth;
         }
-        /* Custom scrollbar for a lighter theme */
+        /* Custom scrollbar for better aesthetics */
         ::-webkit-scrollbar {
             width: 10px;
         }
         ::-webkit-scrollbar-track {
-            background: #e2e8f0; /* light gray track */
+            background: #2d3748;
         }
         ::-webkit-scrollbar-thumb {
-            background: #94a3b8; /* darker thumb */
+            background: #4a5568;
             border-radius: 5px;
         }
         ::-webkit-scrollbar-thumb:hover {
-            background: #64748b;
+            background: #5a6474;
         }
-        
-        @keyframes GradientBackground {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-        
-        .fade-in-up {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-        }
-        .fade-in-up.is-visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        #snow-canvas {
-            background-color: rgba(0, 0, 0, 0.05);
-        }
-
     </style>
 </head>
-<body class="text-gray-800">
+<body class="bg-gray-900 text-gray-200">
 
     <!-- Header & Navigation -->
-    <header class="bg-white sticky top-0 z-50 shadow-md">
+    <header class="bg-gray-800 sticky top-0 z-50 shadow-lg">
         <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="#about" class="text-2xl font-bold text-teal-700">Waqas Hussain</a>
+            <a href="#about" class="text-2xl font-bold text-teal-400">Waqas Hussain</a>
             <nav class="hidden md:block">
                 <ul class="flex space-x-6">
-                    <li><a href="#about" class="hover:text-teal-700 transition-colors duration-300">About</a></li>
-                    <li><a href="#experience" class="hover:text-teal-700 transition-colors duration-300">Experience</a></li>
-                    <li><a href="#projects" class="hover:text-teal-700 transition-colors duration-300">Projects</a></li>
-                    <li><a href="#skills" class="hover:text-teal-700 transition-colors duration-300">Skills</a></li>
-                    <li><a href="#contact" class="hover:text-teal-700 transition-colors duration-300">Contact</a></li>
-                    <li><a href="index.html" class="hover:text-teal-700 transition-colors duration-300">Drak Mode</a></li>
+                    <li><a href="#about" class="hover:text-teal-400 transition-colors duration-300">About</a></li>
+                    <li><a href="#experience" class="hover:text-teal-400 transition-colors duration-300">Experience</a></li>
+                    <li><a href="#projects" class="hover:text-teal-400 transition-colors duration-300">Projects</a></li>
+                    <li><a href="#skills" class="hover:text-teal-400 transition-colors duration-300">Skills</a></li>
+                    <li><a href="#contact" class="hover:text-teal-400 transition-colors duration-300">Contact</a></li>
+                    <li><a href="index2.html" class="hover:text-teal-700 transition-colors duration-300">Light Mode</a></li>
                 </ul>
             </nav>
             <!-- Mobile Menu Button -->
-            <button id="mobile-menu-button" class="md:hidden text-gray-800 focus:outline-none">
+            <button id="mobile-menu-button" class="md:hidden text-gray-200 focus:outline-none">
                 <i class="fas fa-bars text-xl"></i>
             </button>
         </div>
         <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden md:hidden bg-white pb-4">
+        <div id="mobile-menu" class="hidden md:hidden bg-gray-800 pb-4">
             <ul class="flex flex-col items-center space-y-4">
-                <li><a href="#about" class="block py-2 text-center w-full hover:bg-gray-200 transition-colors duration-300">About</a></li>
-                <li><a href="#experience" class="block py-2 text-center w-full hover:bg-gray-200 transition-colors duration-300">Experience</a></li>
-                <li><a href="#projects" class="block py-2 text-center w-full hover:bg-gray-200 transition-colors duration-300">Projects</a></li>
-                <li><a href="#skills" class="block py-2 text-center w-full hover:bg-gray-200 transition-colors duration-300">Skills</a></li>
-                <li><a href="#contact" class="block py-2 text-center w-full hover:bg-gray-200 transition-colors duration-300">Contact</a></li>
-                <li><a href="index.html" class="hover:text-teal-700 transition-colors duration-300">Drak Mode</a></li>
+                <li><a href="#about" class="block py-2 text-center w-full hover:bg-gray-700 transition-colors duration-300">About</a></li>
+                <li><a href="#experience" class="block py-2 text-center w-full hover:bg-gray-700 transition-colors duration-300">Experience</a></li>
+                <li><a href="#projects" class="block py-2 text-center w-full hover:bg-gray-700 transition-colors duration-300">Projects</a></li>
+                <li><a href="#skills" class="block py-2 text-center w-full hover:bg-gray-700 transition-colors duration-300">Skills</a></li>
+                <li><a href="#contact" class="block py-2 text-center w-full hover:bg-gray-700 transition-colors duration-300">Contact</a></li>
+                <li><a href="index2.html" class="hover:text-teal-700 transition-colors duration-300">Light Mode</a></li>
             </ul>
         </div>
     </header>
@@ -96,16 +72,16 @@
     <main class="container mx-auto px-6 py-12">
 
         <!-- About Section -->
-        <section id="about" class="min-h-screen flex items-center fade-in-up relative overflow-hidden bg-transparent rounded-xl shadow-lg">
-            <canvas id="snow-canvas" class="absolute top-0 left-0 w-full h-full pointer-events-none z-30"></canvas>
-            <div class="relative z-20 w-full flex flex-col md:flex-row items-center md:space-x-12 p-8">
+        <section id="about" class="min-h-screen flex items-center">
+            <div class="flex flex-col md:flex-row items-center md:space-x-12">
                 <div class="w-full md:w-1/3 mb-8 md:mb-0">
-                    <img src="images/profiles.jpeg" alt="Waqas Hussain" class="rounded-full w-64 h-64 mx-auto md:mx-0 object-cover border-4 border-teal-700">
+                    <!-- <img src="https://placehold.co/400x400/2d3748/a0aec0?text=Profile+Photo" alt="Waqas Hussain" class="rounded-full w-64 h-64 mx-auto md:mx-0 object-cover border-4 border-teal-400"> -->
+                    <img src="images/profiles.jpeg" alt="Waqas Hussain" class="rounded-full w-64 h-64 mx-auto md:mx-0 object-cover border-4 border-teal-400">
                 </div>
                 <div class="w-full md:w-2/3 text-center md:text-left">
-                    <h1 class="text-5xl font-extrabold text-gray-900 leading-tight">Waqas Hussain</h1>
-                    <p class="text-3xl text-teal-700 mt-2 font-light">Laravel Developer</p>
-                    <p class="mt-6 text-gray-600 max-w-xl mx-auto md:mx-0 leading-relaxed">
+                    <h1 class="text-5xl font-extrabold text-white leading-tight">Waqas Hussain</h1>
+                    <p class="text-3xl text-teal-400 mt-2 font-light">Full Stack Developer</p>
+                    <p class="mt-6 text-gray-400 max-w-xl mx-auto md:mx-0 leading-relaxed">
                         I am an innovative and task-driven professional with 2.5 years of experience in web design and development. My expertise lies in delivering scalable web applications by identifying and addressing business requirements through strategic solutions. Skilled in developing RESTful APIs, managing databases, and implementing secure role-based systems. Proficient in Laravel, Node.js, MySQL, and modern web technologies, with a focus on clean code, MVC architecture, and optimized performance.
                     </p>
                 </div>
@@ -113,42 +89,42 @@
         </section>
 
         <!-- Experience Section -->
-        <section id="experience" class="py-24 fade-in-up">
-            <h2 class="text-4xl font-bold text-center text-gray-900 mb-12">Experience</h2>
+        <section id="experience" class="py-24">
+            <h2 class="text-4xl font-bold text-center text-white mb-12">Experience</h2>
             <div class="space-y-12">
                 <!-- SmartFunStudios -->
-                <div class="bg-white p-8 rounded-xl shadow-lg transform hover:scale-105 transition-transform duration-300 fade-in-up" style="transition-delay: 0.2s;">
+                <div class="bg-gray-800 p-8 rounded-xl shadow-lg transform hover:scale-105 transition-transform duration-300">
                     <div class="flex justify-between items-center mb-4">
-                        <h3 class="text-2xl font-bold text-teal-700">Laravel Developer</h3>
+                        <h3 class="text-2xl font-bold text-teal-400">Laravel Developer</h3>
                         <span class="text-sm text-gray-500">06/2025 - Present</span>
                     </div>
-                    <p class="text-xl font-semibold text-gray-700">SmartFunStudios, Location</p>
-                    <ul class="list-disc list-inside mt-4 text-gray-600 space-y-2">
+                    <p class="text-xl font-semibold text-gray-300">SmartFunStudios, Location</p>
+                    <ul class="list-disc list-inside mt-4 text-gray-400 space-y-2">
                         <li>Worked on multiple Laravel-based projects including a college management system, real estate portal, MCQ web app, ticketing system, and e-commerce site.</li>
                         <li>Focused on backend development, REST APIs, and clean, modular code using Laravel, MySQL, and MVC architecture.</li>
                         <li>**Technologies:** Laravel, PHP, MySQL, REST API, Git, Postman, JavaScript, Bootstrap</li>
                     </ul>
                 </div>
                 <!-- Zahidaz -->
-                <div class="bg-white p-8 rounded-xl shadow-lg transform hover:scale-105 transition-transform duration-300 fade-in-up" style="transition-delay: 0.4s;">
+                <div class="bg-gray-800 p-8 rounded-xl shadow-lg transform hover:scale-105 transition-transform duration-300">
                     <div class="flex justify-between items-center mb-4">
-                        <h3 class="text-2xl font-bold text-teal-700">Full Stack Developer</h3>
+                        <h3 class="text-2xl font-bold text-teal-400">Full Stack Developer</h3>
                         <span class="text-sm text-gray-500">06/2022 - 08/2024</span>
                     </div>
-                    <p class="text-xl font-semibold text-gray-700">Zahidaz, Multan, Pakistan</p>
-                    <ul class="list-disc list-inside mt-4 text-gray-600 space-y-2">
+                    <p class="text-xl font-semibold text-gray-300">Zahidaz, Multan, Pakistan</p>
+                    <ul class="list-disc list-inside mt-4 text-gray-400 space-y-2">
                         <li>Managed PHP and Laravel development for back-end APIs and databases.</li>
                         <li>Worked with Core PHP to develop automated solutions to include web interfaces using HTML, CSS, JavaScript and Web services.</li>
                     </ul>
                 </div>
                 <!-- AZ Software House -->
-                <div class="bg-white p-8 rounded-xl shadow-lg transform hover:scale-105 transition-transform duration-300 fade-in-up" style="transition-delay: 0.6s;">
+                <div class="bg-gray-800 p-8 rounded-xl shadow-lg transform hover:scale-105 transition-transform duration-300">
                     <div class="flex justify-between items-center mb-4">
-                        <h3 class="text-2xl font-bold text-teal-700">Web Designer Intern</h3>
+                        <h3 class="text-2xl font-bold text-teal-400">Web Designer Intern</h3>
                         <span class="text-sm text-gray-500">01/2021 - 06/2021</span>
                     </div>
-                    <p class="text-xl font-semibold text-gray-700">AZ Software House, Multan, Pakistan</p>
-                    <ul class="list-disc list-inside mt-4 text-gray-600 space-y-2">
+                    <p class="text-xl font-semibold text-gray-300">AZ Software House, Multan, Pakistan</p>
+                    <ul class="list-disc list-inside mt-4 text-gray-400 space-y-2">
                         <li>Developed an intuitive frontend in Vue.js to enhance user experience, making it easy for users to browse and access the latest coupons and deals.</li>
                         <li>In Laravel, creating and managing APIs to seamlessly integrate with the Vue.js frontend for dynamic, real-time updates.</li>
                         <li>Designed an admin panel for managing brands, categories, and coupons, allowing efficient control over content and promotions displayed to users.</li>
@@ -158,70 +134,70 @@
         </section>
 
         <!-- Projects Section -->
-        <section id="projects" class="py-24 fade-in-up">
-            <h2 class="text-4xl font-bold text-center text-gray-900 mb-12">Featured Projects</h2>
+        <section id="projects" class="py-24">
+            <h2 class="text-4xl font-bold text-center text-white mb-12">Featured Projects</h2>
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Zigpy -->
-                <div class="bg-white p-8 rounded-xl shadow-lg flex flex-col justify-between transform hover:scale-105 transition-transform duration-300 fade-in-up" style="transition-delay: 0.8s;">
+                <div class="bg-gray-800 p-8 rounded-xl shadow-lg flex flex-col justify-between transform hover:scale-105 transition-transform duration-300">
                     <div>
-                        <h3 class="text-2xl font-bold text-teal-700">Zigpy</h3>
+                        <h3 class="text-2xl font-bold text-teal-400">Zigpy</h3>
                         <p class="text-sm text-gray-500">E-commerce platform</p>
-                        <p class="mt-4 text-gray-600">Developed backend using Node.js and MySQL, implemented REST APIs, and built a role-based access control system for secure user management.</p>
+                        <p class="mt-4 text-gray-400">Developed backend using Node.js and MySQL, implemented REST APIs, and built a role-based access control system for secure user management.</p>
                     </div>
                     <a href="https://zigpy.com" target="_blank" class="mt-6 inline-block text-white bg-teal-600 hover:bg-teal-700 py-2 px-4 rounded-full text-center transition-colors duration-300">
                         View Project <i class="fas fa-external-link-alt ml-2"></i>
                     </a>
                 </div>
                 <!-- Sondra -->
-                <div class="bg-white p-8 rounded-xl shadow-lg flex flex-col justify-between transform hover:scale-105 transition-transform duration-300 fade-in-up" style="transition-delay: 1.0s;">
+                <div class="bg-gray-800 p-8 rounded-xl shadow-lg flex flex-col justify-between transform hover:scale-105 transition-transform duration-300">
                     <div>
-                        <h3 class="text-2xl font-bold text-teal-700">Sondra</h3>
+                        <h3 class="text-2xl font-bold text-teal-400">Sondra</h3>
                         <p class="text-sm text-gray-500">MCQ-based web application</p>
-                        <p class="mt-4 text-gray-600">Built backend APIs using Laravel and MySQL for question banks, user progress tracking, and result analytics.</p>
+                        <p class="mt-4 text-gray-400">Built backend APIs using Laravel and MySQL for question banks, user progress tracking, and result analytics.</p>
                     </div>
                     <a href="https://sondra.ai" target="_blank" class="mt-6 inline-block text-white bg-teal-600 hover:bg-teal-700 py-2 px-4 rounded-full text-center transition-colors duration-300">
                         View Project <i class="fas fa-external-link-alt ml-2"></i>
                     </a>
                 </div>
                 <!-- College Management System -->
-                <div class="bg-white p-8 rounded-xl shadow-lg flex flex-col justify-between transform hover:scale-105 transition-transform duration-300 fade-in-up" style="transition-delay: 1.2s;">
+                <div class="bg-gray-800 p-8 rounded-xl shadow-lg flex flex-col justify-between transform hover:scale-105 transition-transform duration-300">
                     <div>
-                        <h3 class="text-2xl font-bold text-teal-700">College Management System</h3>
+                        <h3 class="text-2xl font-bold text-teal-400">College Management System</h3>
                         <p class="text-sm text-gray-500">Education management portal</p>
-                        <p class="mt-4 text-gray-600">Built modules for student management, fee tracking, and academic records using Laravel and MySQL, with secure role-based access and RESTful API integration.</p>
+                        <p class="mt-4 text-gray-400">Built modules for student management, fee tracking, and academic records using Laravel and MySQL, with secure role-based access and RESTful API integration.</p>
                     </div>
-                    <a href="https://college.smar tmanagementschool.com" target="_blank" class="mt-6 inline-block text-white bg-teal-600 hover:bg-teal-700 py-2 px-4 rounded-full text-center transition-colors duration-300">
+                    <a href="https://college.smartmanagementschool.com/" target="_blank" class="mt-6 inline-block text-white bg-teal-600 hover:bg-teal-700 py-2 px-4 rounded-full text-center transition-colors duration-300">
                         View Project <i class="fas fa-external-link-alt ml-2"></i>
                     </a>
                 </div>
                 <!-- Greatfilmjobs -->
-                <div class="bg-white p-8 rounded-xl shadow-lg flex flex-col justify-between transform hover:scale-105 transition-transform duration-300 fade-in-up" style="transition-delay: 1.4s;">
+                <div class="bg-gray-800 p-8 rounded-xl shadow-lg flex flex-col justify-between transform hover:scale-105 transition-transform duration-300">
                     <div>
-                        <h3 class="text-2xl font-bold text-teal-700">Greatfilmjobs</h3>
+                        <h3 class="text-2xl font-bold text-teal-400">Greatfilmjobs</h3>
                         <p class="text-sm text-gray-500">Job posting web application</p>
-                        <p class="mt-4 text-gray-600">A web application showcasing various job postings. Technologies: Bootstrap, JavaScript, Laravel.</p>
+                        <p class="mt-4 text-gray-400">A web application showcasing various job postings. Technologies: Bootstrap, JavaScript, Laravel.</p>
                     </div>
                     <a href="https://greatfilmjobs.com/" target="_blank" class="mt-6 inline-block text-white bg-teal-600 hover:bg-teal-700 py-2 px-4 rounded-full text-center transition-colors duration-300">
                         View Project <i class="fas fa-external-link-alt ml-2"></i>
                     </a>
                 </div>
                 <!-- dealsgraber -->
-                <div class="bg-white p-8 rounded-xl shadow-lg flex flex-col justify-between transform hover:scale-105 transition-transform duration-300 fade-in-up" style="transition-delay: 1.6s;">
+                <div class="bg-gray-800 p-8 rounded-xl shadow-lg flex flex-col justify-between transform hover:scale-105 transition-transform duration-300">
                     <div>
-                        <h3 class="text-2xl font-bold text-teal-700">dealsgraber</h3>
+                        <h3 class="text-2xl font-bold text-teal-400">dealsgraber</h3>
                         <p class="text-sm text-gray-500">Coupon and deals application</p>
-                        <p class="mt-4 text-gray-600">A Laravel and Vue.js application for browsing latest coupons and deals.</p>
+                        <p class="mt-4 text-gray-400">A Laravel and Vue.js application for browsing latest coupons and deals.</p>
                     </div>
                     <a href="https://dealsgraber.com/" target="_blank" class="mt-6 inline-block text-white bg-teal-600 hover:bg-teal-700 py-2 px-4 rounded-full text-center transition-colors duration-300">
                         View Project <i class="fas fa-external-link-alt ml-2"></i>
                     </a>
                 </div>
                 <!-- dailyvoting -->
-                <div class="bg-white p-8 rounded-xl shadow-lg flex flex-col justify-between transform hover:scale-105 transition-transform duration-300 fade-in-up" style="transition-delay: 1.8s;">
+                <div class="bg-gray-800 p-8 rounded-xl shadow-lg flex flex-col justify-between transform hover:scale-105 transition-transform duration-300">
                     <div>
-                        <h3 class="text-2xl font-bold text-teal-700">dailyvoting</h3>
+                        <h3 class="text-2xl font-bold text-teal-400">dailyvoting</h3>
                         <p class="text-sm text-gray-500">Web portal for daily voting</p>
-                        <p class="mt-4 text-gray-600">A web portal for managing daily voting.</p>
+                        <p class="mt-4 text-gray-400">A web portal for managing daily voting.</p>
                     </div>
                     <a href="http://dailyvoting.pk/" target="_blank" class="mt-6 inline-block text-white bg-teal-600 hover:bg-teal-700 py-2 px-4 rounded-full text-center transition-colors duration-300">
                         View Project <i class="fas fa-external-link-alt ml-2"></i>
@@ -231,9 +207,9 @@
         </section>
 
         <!-- Skills Section -->
-        <section id="skills" class="py-24 fade-in-up">
-            <h2 class="text-4xl font-bold text-center text-gray-900 mb-12">Skills</h2>
-            <div class="flex flex-wrap justify-center gap-4 fade-in-up" style="transition-delay: 0.2s;">
+        <section id="skills" class="py-24">
+            <h2 class="text-4xl font-bold text-center text-white mb-12">Skills</h2>
+            <div class="flex flex-wrap justify-center gap-4">
                 <span class="bg-teal-600 text-white font-semibold py-2 px-4 rounded-full shadow-md">Laravel</span>
                 <span class="bg-teal-600 text-white font-semibold py-2 px-4 rounded-full shadow-md">Vue.js</span>
                 <span class="bg-teal-600 text-white font-semibold py-2 px-4 rounded-full shadow-md">Core PHP</span>
@@ -253,26 +229,25 @@
         </section>
 
         <!-- Contact Section -->
-        <section id="contact" class="py-24 fade-in-up">
-            <h2 class="text-4xl font-bold text-center text-gray-900 mb-12">Get In Touch</h2>
+        <section id="contact" class="py-24">
+            <h2 class="text-4xl font-bold text-center text-white mb-12">Get In Touch</h2>
             <div class="flex flex-col md:flex-row justify-center items-center space-y-6 md:space-y-0 md:space-x-12 text-lg">
-                <a href="tel:+923138582571" class="flex items-center space-x-3 text-gray-600 hover:text-teal-700 transition-colors duration-300">
+                <a href="tel:+923138582571" class="flex items-center space-x-3 text-gray-400 hover:text-teal-400 transition-colors duration-300">
                     <i class="fas fa-phone-alt text-xl"></i>
                     <span>+92 313 8582571</span>
                 </a>
-                <a href="mailto:waqasit.bs@gmail.com" class="flex items-center space-x-3 text-gray-600 hover:text-teal-700 transition-colors duration-300">
-                    <i class="fas fa-envelope text-xl"></i>
-                    <span>waqasit.bs@gmail.com</span>
+                <a href="mailto:waqasit.bs@gmail.com" style="color: teal; text-decoration: none;">
+                    <i class="fas fa-envelope"></i> waqasit.bs@gmail.com
                 </a>
-                <a href="https://www.linkedin.com/in/waqas-hussain-laravel-dev" target="_blank" class="flex items-center space-x-3 text-gray-600 hover:text-teal-700 transition-colors duration-300">
+                <a href="https://www.linkedin.com/in/waqas-hussain-laravel-dev" target="_blank" class="flex items-center space-x-3 text-gray-400 hover:text-teal-400 transition-colors duration-300">
                     <i class="fab fa-linkedin text-xl"></i>
                     <span>LinkedIn</span>
                 </a>
-                  <a href="https://github.com/waqas8582" target="_blank" class="flex items-center space-x-3 text-gray-400 hover:text-teal-400 transition-colors duration-300">
+                 <a href="https://github.com/waqas8582" target="_blank" class="flex items-center space-x-3 text-gray-400 hover:text-teal-400 transition-colors duration-300">
                     <i class="fab fa-github text-xl"></i>
                     <span>GitHub</span>
                 </a>
-                <span class="flex items-center space-x-3 text-gray-600">
+                <span class="flex items-center space-x-3 text-gray-400">
                     <i class="fas fa-map-marker-alt text-xl"></i>
                     <span>Lahore, Pakistan</span>
                 </span>
@@ -281,107 +256,21 @@
 
     </main>
 
-    <footer class="bg-white py-6 text-center text-gray-500 shadow-inner">
+    <footer class="bg-gray-800 py-6 text-center text-gray-500">
         <p>&copy; 2025 Waqas Hussain. All rights reserved.</p>
     </footer>
 
-    <!-- JavaScript for Mobile Menu, Intersection Observer, and Snowfall Effect -->
+    <!-- JavaScript for Mobile Menu and Smooth Scrolling -->
     <script>
         document.getElementById('mobile-menu-button').addEventListener('click', function() {
             document.getElementById('mobile-menu').classList.toggle('hidden');
         });
 
+        // Close mobile menu on link click
         document.querySelectorAll('#mobile-menu a').forEach(item => {
             item.addEventListener('click', () => {
                 document.getElementById('mobile-menu').classList.add('hidden');
             });
-        });
-
-        // Intersection Observer to add animation on scroll
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('is-visible');
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, {
-            threshold: 0.1
-        });
-
-        document.querySelectorAll('.fade-in-up').forEach(element => {
-            observer.observe(element);
-        });
-
-        // Snowfall Effect for the About section
-        window.addEventListener('load', function() {
-            const canvas = document.getElementById('snow-canvas');
-            const ctx = canvas.getContext('2d');
-            const aboutSection = document.getElementById('about');
-
-            let width, height;
-            let particles = [];
-
-            function resizeCanvas() {
-                width = canvas.width = aboutSection.offsetWidth;
-                height = canvas.height = aboutSection.offsetHeight;
-            }
-
-            class Particle {
-                constructor() {
-                    this.x = Math.random() * width;
-                    this.y = Math.random() * height;
-                    this.size = Math.random() * 2 + 1; // Small size
-                    this.speedX = Math.random() * 0.5 - 0.25; // Gentle horizontal drift
-                    this.speedY = Math.random() * 1.5 + 0.5; // Downward flow
-                    this.opacity = Math.random() * 0.5 + 0.2; // Semi-transparent
-                }
-
-                update() {
-                    this.x += this.speedX;
-                    this.y += this.speedY;
-                    if (this.y > height) {
-                        this.y = 0;
-                        this.x = Math.random() * width;
-                    }
-                    if (this.x < 0 || this.x > width) {
-                        this.speedX *= -1; // Bounce off the sides
-                    }
-                }
-
-                draw() {
-                    ctx.beginPath();
-                    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-                    ctx.fillStyle = `rgba(255, 255, 255, ${this.opacity})`;
-                    ctx.fill();
-                }
-            }
-
-            function init() {
-                particles = [];
-                const numberOfParticles = Math.floor(width * height / 10000); // Adjust density
-                for (let i = 0; i < numberOfParticles; i++) {
-                    particles.push(new Particle());
-                }
-            }
-
-            function animate() {
-                ctx.clearRect(0, 0, width, height);
-                for (let i = 0; i < particles.length; i++) {
-                    particles[i].update();
-                    particles[i].draw();
-                }
-                requestAnimationFrame(animate);
-            }
-
-            window.addEventListener('resize', () => {
-                resizeCanvas();
-                init(); // Re-initialize particles on resize
-            });
-            
-            resizeCanvas();
-            init();
-            animate();
         });
     </script>
 </body>
